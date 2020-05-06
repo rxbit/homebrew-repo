@@ -1,21 +1,26 @@
-require 'formula'
-
+# Documentation: https://docs.brew.sh/Formula-Cookbook
+#                https://rubydoc.brew.sh/Formula
+# PLEASE REMOVE ALL GENERATED COMMENTS BEFORE SUBMITTING YOUR PULL REQUEST!
 class ClassDump < Formula
-  homepage 'http://stevenygard.com/projects/class-dump/'
-  head 'https://github.com/nygard/class-dump.git'
-  url 'https://github.com/nygard/class-dump/archive/3.5.tar.gz'
-  sha1 'c343bec63878161b02c956f49c9c1c8d989b4b5a'
+  desc "Generate Objective-C headers from Mach-O files."
+  homepage "http://stevenygard.com/projects/class-dump"
+  url "https://github.com/nygard/class-dump/archive/3.5.tar.gz"
+  sha256 "94f5286c657dca02dbed4514b2dbd791b42ecef5122e3945a855caf8d1f65e64"
 
-  bottle do
-    cellar :any
-    sha1 "f87501bf78ff05444c12347d874a81d9b87445dc" => :mavericks
-  end
-
-  depends_on :macos => :mavericks
   depends_on :xcode => :build
 
   def install
-    xcodebuild "-configuration", "Release", "SYMROOT=build", "PREFIX=#{prefix}", "ONLY_ACTIVE_ARCH=YES"
+    system "xcodebuild", "-configuration",
+                          "Release",
+                          "SYMROOT=build",
+                          "PREFIX=#{prefix}",
+                          "ONLY_ACTIVE_ARCH=NO",
+                          "OTHER_CFLAGS=-I/usr/local/opt/openssl/include",
+                          "OTHER_LDFLAGS=-L/usr/local/opt/openssl/lib"
     bin.install "build/Release/class-dump"
+  end
+
+  test do
+    system "true"
   end
 end
