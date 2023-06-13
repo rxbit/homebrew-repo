@@ -7,6 +7,8 @@ cask "ios-app-signer" do
   desc "App for (re)signing iOS apps and bundling them"
   homepage "https://dantheman827.github.io/ios-app-signer/"
 
+  depends_on formula: "p7zip"
+
   livecheck do
     url :url
     strategy :github_latest
