@@ -19,7 +19,7 @@ class Ideviceinstaller < Formula
   end
 
   head do
-    url "https://git.sukimashita.com/ideviceinstaller.git"
+    url "https://github.com/rxbit/ideviceinstaller.git"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
@@ -29,7 +29,7 @@ class Ideviceinstaller < Formula
   depends_on "pkg-config" => :build
   depends_on "libimobiledevice"
   depends_on "libplist"
-  depends_on "libzip"
+  depends_on "libarchive"
 
   def install
     system "./autogen.sh" if build.head?

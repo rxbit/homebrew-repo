@@ -1,6 +1,6 @@
 cask "ios-app-signer" do
-  version "1.14.2"
-  sha256 "45a4f171cac0a7bdefc5f669083cc785c8b887cc0b484e94f68270a8a1e8c94e"
+  version "1.14.3"
+  sha256 "6425b9eb6749c7e52246e29ce451f01f68e77ab343b886c4cbc84ec88203756e"
 
   url "https://github.com/rxbit/ios-app-signer/releases/download/#{version}/#{version}.zip"
   name "iOS App Signer"
