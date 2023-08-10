@@ -1,4 +1,4 @@
-cask "ios-app-signer" do
+cask "ios-app-signer-rxbit" do
   version "1.14.3"
   sha256 "6425b9eb6749c7e52246e29ce451f01f68e77ab343b886c4cbc84ec88203756e"
 
